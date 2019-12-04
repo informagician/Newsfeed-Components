@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'How to Avoid Undercutting Yourself in Salary Negotiations',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `After a lot of work put into research, job applications, and interviewing, you’ve got a job offer! It’s great news and it means the end of the job hunt is close, but you still have work to do before you sign that offer letter.`,
+
+    secondParagraph: `A job offer is a two-way conversation, and every offer should be negotiated to ensure that the final job offer is one that everyone is happy with and excited about. `,
+
+    thirdParagraph: `Today we’ll be arming you with our best negotiation strategies, along with advice to avoid undercutting yourself when you’re asked to give that magic number. `
+  },
+  {
+    title: 'The 4 Keys of Interview Etiquette',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `There are unspoken rules about job interviewing — some that are important enough that you could unintentionally ruin your chances of getting the job if you don’t follow them. But don’t stress –  today we’re sharing the etiquette secrets that will set you apart in the interview process and help you land that dream job.`,
+
+    secondParagraph: `Depending on your prior work experience, some of these tips may be familiar to you. They may even seem obvious. But people are hired for jobs in a variety of different ways, and for many in the workforce that process doesn’t necessarily involve formal job interviews. `,
+
+    thirdParagraph: `This advice focuses on the etiquette of job interviews: how to best present yourself, how to make a great first impression, how to behave and react during the interview, and how to finish on a high note with a thank you.`
   }
 ];
 
