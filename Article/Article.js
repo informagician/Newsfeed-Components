@@ -107,8 +107,54 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function articleCreator(name,day,first,second,third) {
+
+  const article = document.createElement('div');
+  article.classList.add('article');
+  
+
+  const h2 = document.createElement('h2');
+  h2.textContent = name;
+  
+  const date = document.createElement('p');
+  date.classList.add('date');
+  date.textContent = day;
+
+  const p1 = document.createElement('p');
+  p1.textContent = first;
+
+  const p2 = document.createElement('p');
+  p2.textContent = second;
+
+  const p3 = document.createElement('p');
+  p3.textContent = third;
+
+  const expandButton = document.createElement('span');
+  expandButton.classList.add('expandButton');
+  expandButton.addEventListener('click', event => {
+    article.classList.toggle('article-open');
+  });
+
+  article.appendChild(h2);
+  article.appendChild(date);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandButton);
+
+  const articles = document.querySelector('.articles');
+  articles.appendChild(article);
+
+  return article;
+}
+
+const feed = data.map((obj) => {
+  let newsfeed = articleCreator(obj.title,obj.date,obj.firstParagraph,obj.secondParagraph,obj.thirdParagraph);
+  return newsfeed;
+});
