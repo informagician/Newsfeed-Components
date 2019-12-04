@@ -20,7 +20,9 @@ const data = [
     thirdParagraph: `Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
         naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
         han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
-        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
+        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`,
+
+    read: false
   },
   {
     title: 'Javascript and You, ES6',
@@ -40,7 +42,9 @@ const data = [
     thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights 
         Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven 
         roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot 
-        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
+        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`,
+
+    read: false
   },
   {
     title: 'React vs Angular vs Vue',
@@ -68,7 +72,8 @@ const data = [
 
     thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel 
         Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James 
-        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
+        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`,
+        read: false
   },
   {
     title: 'Professional Software Development in 2019',
@@ -84,7 +89,8 @@ const data = [
 
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+    read: false
   },
   {
     title: 'How to Avoid Undercutting Yourself in Salary Negotiations',
@@ -93,7 +99,8 @@ const data = [
 
     secondParagraph: `A job offer is a two-way conversation, and every offer should be negotiated to ensure that the final job offer is one that everyone is happy with and excited about. `,
 
-    thirdParagraph: `Today we’ll be arming you with our best negotiation strategies, along with advice to avoid undercutting yourself when you’re asked to give that magic number. `
+    thirdParagraph: `Today we’ll be arming you with our best negotiation strategies, along with advice to avoid undercutting yourself when you’re asked to give that magic number. `,
+    read: false
   },
   {
     title: 'The 4 Keys of Interview Etiquette',
@@ -102,7 +109,8 @@ const data = [
 
     secondParagraph: `Depending on your prior work experience, some of these tips may be familiar to you. They may even seem obvious. But people are hired for jobs in a variety of different ways, and for many in the workforce that process doesn’t necessarily involve formal job interviews. `,
 
-    thirdParagraph: `This advice focuses on the etiquette of job interviews: how to best present yourself, how to make a great first impression, how to behave and react during the interview, and how to finish on a high note with a thank you.`
+    thirdParagraph: `This advice focuses on the etiquette of job interviews: how to best present yourself, how to make a great first impression, how to behave and react during the interview, and how to finish on a high note with a thank you.`,
+    read: false
   }
 ];
 
@@ -159,12 +167,13 @@ function articleCreator(name,day,first,second,third) {
   expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
   });
-  // const collapseButton = document.createElement('span');
-  // collapseButton.classList.add('collapseButton');
-  // collapseButton.textContent = '\u25B2';
-  // collapseButton.addEventListener('click', () => {
-  //   article.classList.toggle('article-open');
-  // });
+  
+  const close = document.createElement('span');
+  close.textContent = 'close';
+  close.classList.add('close');
+  close.addEventListener('click', () => {
+    article.style.display = 'none';
+  });
 
   article.appendChild(h2);
   article.appendChild(date);
@@ -172,7 +181,7 @@ function articleCreator(name,day,first,second,third) {
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(expandButton);
-  //article.appendChild(collapseButton);
+  article.appendChild(close);
 
   const articles = document.querySelector('.articles');
   articles.appendChild(article);
@@ -181,6 +190,8 @@ function articleCreator(name,day,first,second,third) {
 }
 
 const feed = data.map((obj) => {
-  let newsfeed = articleCreator(obj.title,obj.date,obj.firstParagraph,obj.secondParagraph,obj.thirdParagraph);
-  return newsfeed;
+  if(obj.read == false) {  
+    let newsfeed = articleCreator(obj.title,obj.date,obj.firstParagraph,obj.secondParagraph,obj.thirdParagraph);
+    return newsfeed;
+  }
 });
