@@ -20,7 +20,9 @@ const data = [
     thirdParagraph: `Dagobah hutt jawa leia calamari ventress skywalker yoda. Binks wicket hutt coruscant sidious
         naboo ackbar tatooine. Hutt lars padmé darth. Maul solo darth darth jabba qui-gon chewbacca darth maul. Moff baba wicket
         han. C-3po antilles moff qui-gon ahsoka aayla dooku amidala. Palpatine droid amidala droid k-3po twi'lek padmé wookiee. Leia
-        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
+        moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`,
+
+    read: false
   },
   {
     title: 'Javascript and You, ES6',
@@ -40,7 +42,9 @@ const data = [
     thirdParagraph: `Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights 
         Petrificus Totalus. So thirsty, deluminator firs’ years follow me 12 inches of parchment. Head Boy start-of-term banquet Cleansweep Seven 
         roaring lion hat. Unicorn blood crossbow mars is bright tonight, feast Norwegian Ridgeback. Come seek us where our voices sound, we cannot 
-        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
+        sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`,
+
+    read: false
   },
   {
     title: 'React vs Angular vs Vue',
@@ -68,7 +72,8 @@ const data = [
 
     thirdParagraph: `Gotta catch 'em all Horsea gym Ninjask Absol Sinnoh Poliwag. Gotta catch 'em all Youngster wants to fight Soda Pop Floatzel 
         Leech Life Seismitoad Ariados. Earthquake Pokemon Glitch City Tail Whip Skitty Ekans Dialga. Ut aliquip ex ea commodo consequat James 
-        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
+        Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`,
+        read: false
   },
   {
     title: 'Professional Software Development in 2019',
@@ -84,7 +89,28 @@ const data = [
 
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+    read: false
+  },
+  {
+    title: 'How to Avoid Undercutting Yourself in Salary Negotiations',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `After a lot of work put into research, job applications, and interviewing, you’ve got a job offer! It’s great news and it means the end of the job hunt is close, but you still have work to do before you sign that offer letter.`,
+
+    secondParagraph: `A job offer is a two-way conversation, and every offer should be negotiated to ensure that the final job offer is one that everyone is happy with and excited about. `,
+
+    thirdParagraph: `Today we’ll be arming you with our best negotiation strategies, along with advice to avoid undercutting yourself when you’re asked to give that magic number. `,
+    read: false
+  },
+  {
+    title: 'The 4 Keys of Interview Etiquette',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `There are unspoken rules about job interviewing — some that are important enough that you could unintentionally ruin your chances of getting the job if you don’t follow them. But don’t stress –  today we’re sharing the etiquette secrets that will set you apart in the interview process and help you land that dream job.`,
+
+    secondParagraph: `Depending on your prior work experience, some of these tips may be familiar to you. They may even seem obvious. But people are hired for jobs in a variety of different ways, and for many in the workforce that process doesn’t necessarily involve formal job interviews. `,
+
+    thirdParagraph: `This advice focuses on the etiquette of job interviews: how to best present yourself, how to make a great first impression, how to behave and react during the interview, and how to finish on a high note with a thank you.`,
+    read: false
   }
 ];
 
@@ -107,8 +133,65 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function articleCreator(name,day,first,second,third) {
+
+  const article = document.createElement('div');
+  article.classList.add('article');
+  
+
+  const h2 = document.createElement('h2');
+  h2.textContent = name;
+  
+  const date = document.createElement('p');
+  date.classList.add('date');
+  date.textContent = day;
+
+  const p1 = document.createElement('p');
+  p1.textContent = first;
+
+  const p2 = document.createElement('p');
+  p2.textContent = second;
+
+  const p3 = document.createElement('p');
+  p3.textContent = third;
+
+  const expandButton = document.createElement('span');
+  expandButton.classList.add('expandButton');
+  expandButton.textContent = 'expand';
+  expandButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+  
+  const close = document.createElement('span');
+  close.textContent = 'close';
+  close.classList.add('close');
+  close.addEventListener('click', () => {
+    article.style.display = 'none';
+  });
+
+  article.appendChild(h2);
+  article.appendChild(date);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandButton);
+  article.appendChild(close);
+
+  const articles = document.querySelector('.articles');
+  articles.appendChild(article);
+
+  return article;
+}
+
+const feed = data.map((obj) => {
+  if(obj.read == false) {  
+    let newsfeed = articleCreator(obj.title,obj.date,obj.firstParagraph,obj.secondParagraph,obj.thirdParagraph);
+    return newsfeed;
+  }
+});
