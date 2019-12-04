@@ -137,9 +137,16 @@ function articleCreator(name,day,first,second,third) {
 
   const expandButton = document.createElement('span');
   expandButton.classList.add('expandButton');
-  expandButton.addEventListener('click', event => {
+  expandButton.textContent = 'expand';
+  expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
   });
+  // const collapseButton = document.createElement('span');
+  // collapseButton.classList.add('collapseButton');
+  // collapseButton.textContent = '\u25B2';
+  // collapseButton.addEventListener('click', () => {
+  //   article.classList.toggle('article-open');
+  // });
 
   article.appendChild(h2);
   article.appendChild(date);
@@ -147,6 +154,7 @@ function articleCreator(name,day,first,second,third) {
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(expandButton);
+  //article.appendChild(collapseButton);
 
   const articles = document.querySelector('.articles');
   articles.appendChild(article);
